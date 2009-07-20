@@ -1,2 +1,2 @@
-require 'hello'
+require 'roflclicks'
 run Sinatra::Application
