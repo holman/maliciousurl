@@ -1,0 +1,23 @@
+body{
+  margin: 0 20%;
+  font-family: 'Helvetica', sans-serif;
+}
+h1{
+  font-size: 6em;
+  margin: 30px 0;
+  text-transform: uppercase;
+}
+h2{
+  font-size: 3em;
+  margin: 30px 0;
+}
+p{
+  font-size: 2em;
+  margin: 30px 0;
+}
+a{
+  color: #111;
+}
+#footer{
+  margin-bottom: 2em;
+}
