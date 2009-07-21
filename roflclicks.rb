@@ -3,6 +3,10 @@ require 'sinatra'
 require 'haml'
 require 'dm-core'
 
+Dir['vendor/*'].each do |lib|
+  $:.unshift(File.join(File.dirname(__FILE__), lib, 'lib'))
+end
+
 @@total_views = Dir.entries("views").size - 3
 
 class Click
