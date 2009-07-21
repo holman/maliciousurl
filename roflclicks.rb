@@ -21,7 +21,7 @@ helpers do
 end
 
 get '/' do
-  db = SQLite3::Database.new("roflclicks.db")
+  db = SQLite3::Database.new("roflclicks.sqlite3")
   db.execute("update clicks set total = total+1")
   @total = number_with_delimiter db.get_first_row("select total from clicks").first.to_i
   haml "index_#{(1..@@total_views).to_a[rand(@@total_views)]}".to_sym
