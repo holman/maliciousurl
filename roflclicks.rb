@@ -3,10 +3,12 @@ require 'sinatra'
 require 'haml'
 require 'sqlite3'
 
+@@total_views = Dir.entries("views").size - 3
+
 helpers do
   def number_with_delimiter(number, *args)
     delimiter ||= ','
-    separator ||= ','
+    separator ||= '.'
   
     begin
       parts = number.to_s.split('.')
@@ -22,5 +24,5 @@ get '/' do
   db = SQLite3::Database.new("roflclicks.db")
   db.execute("update clicks set total = total+1")
   @total = number_with_delimiter db.get_first_row("select total from clicks").first.to_i
-  haml "index_#{(1..3).to_a[rand(3)]}".to_sym
+  haml "index_#{(1..@@total_views).to_a[rand(@@total_views)]}".to_sym
 end
